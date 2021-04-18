@@ -51,11 +51,55 @@ body {
 	margin: 0;
 }
 
+
+
 /* INFO-ABOUT */
 
-.info-about {
-	display: grid;
-	grid-template-columns: repeat(1, 1fr);
+.text-about {
+	background-color: #212964;
+	margin: 0;
+	padding: 40px;
+	/* max-width: 70vw; */
+	color: #fff;
+}
+
+.container {
+	width: 70vw;
+	margin: 0 auto;
+}
+
+.text-about__ul {
+	margin-bottom: 8px;
+	padding: 0;
+	list-style: none;
+	counter-reset: li;
+}
+
+.text-about__ul li {
+	position: relative;
+	border: 2px solid #195588;
+	background: #212964;
+	padding: 15px 19px 15px 27px;
+	margin: 12px 0 12px 40px;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+
+.text-about__ul li:before {
+	line-height: 32px;
+	position: absolute;
+	top: 4px;
+	left: -39px;
+	width: 37px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #f9f5f5;
+	background: #275b88;
+	counter-increment: li;
+	content: counter(li);
+	-webkit-transition-duration: 0.2s;
+	transition-duration: 0.2s;
 }
 
 /* QUEST */
@@ -102,8 +146,68 @@ body {
 	justify-content: center;
 }
 
-@media screen and (min-width: 1200px) {
-	.info-about {
-		grid-template-columns: repeat(2, 1fr);
-	}
+
+ol {
+
+	list-style-type: none;
+	counter-reset: num;
+	position: relative;
+	margin: 0 0 0 60px;
+	padding: 15px 0 5px 0;
+	font-size: 16px;
+
+}
+
+ol li {
+
+	position: relative;
+	margin: 0 0 0 0;
+	padding: 0 0 10px 0;
+	line-height: 1.4;
+
+}
+
+ol li:after {
+	content: counter(num);
+	counter-increment: num;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: -45px;
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	background: #18465C;
+	color: #fff;
+	text-align: center;
+	font-size: 18px;
+	border-radius: 50%;
+	border: 1px solid #C8A854;
+}
+
+
+
+/* Вертикальная линия */
+
+ol:before {
+	content: '';
+	position: absolute;
+	top: 15px;
+	bottom: 15px;
+	left: -30px;
+	width: 1px;
+	border-left: 1px solid #C8A854;
+}
+
+/* Скрытие линии у последнего li */
+
+ol li:last-child:before {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: -38px;
+	width: 28px;
+	background: #18465C;
 }
